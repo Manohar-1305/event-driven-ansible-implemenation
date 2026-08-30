@@ -12,3 +12,5 @@
       action:
         run_job_template:
           name: "Diagnose Crashing Pod"
+          organization: "Default"
+          post_events: true
