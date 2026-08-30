@@ -1,0 +1,14 @@
+---
+- name: OpenShift crashing pod
+  hosts: all
+  sources:
+    - ansible.eda.alertmanager:
+        host: 0.0.0.0
+        port: 5001
+
+  rules:
+    - name: Crashing pod detected
+      condition: event.alert.labels.alertname == "EDA_PodCrashLooping"
+      action:
+        run_job_template:
+          name: "Diagnose Crashing Pod"
