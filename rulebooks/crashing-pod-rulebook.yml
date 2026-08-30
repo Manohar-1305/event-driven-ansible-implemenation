@@ -14,5 +14,3 @@
           name: "health_checks"
           organization: "Default"
           post_events: true
-          extra_vars:
-            pod: "{{ event.alert.labels.pod }}"
