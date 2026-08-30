@@ -11,6 +11,6 @@
       condition: event.alert.labels.alertname == "EDA_PodCrashLooping"
       action:
         run_job_template:
-          name: "Diagnose Crashing Pod"
+          name: "health_checks"
           organization: "Default"
           post_events: true
