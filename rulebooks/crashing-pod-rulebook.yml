@@ -14,7 +14,7 @@
           name: "health_checks"
           organization: "Default"
           post_events: true
-          
+
     - name: Image pull error detected
       condition: event.alert.labels.alertname == "EDA_PodImagePullBackOff"
       action:
@@ -22,3 +22,6 @@
           name: "image_pullbackoff_checks"
           organization: "Default"
           post_events: true
+          extra_vars:
+            pod_name: "{{ event.alert.labels.pod }}"
+            namespace: "{{ event.alert.labels.namespace }}"
